@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[6]:
-
-
 # Mostrar o codigo dos serviços
 
 print("Impressão PB: 1")
@@ -63,16 +60,4 @@ elif pagamento == 3:
     print(f"Valor total R${total:5.2f}")
 else:
     print("Forma de pagamento invalido")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
