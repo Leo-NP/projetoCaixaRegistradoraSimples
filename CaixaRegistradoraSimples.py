@@ -11,9 +11,15 @@ print("******************************************************")
 # Função para atribuiur o codigo do serviço e a quantidade, calculando o preço conforme inserção
 def codigoPreco():
     total = 0
-    while True:   
-        x = int(input("\nCódigo do serviço (0 para sair): "))
-        preco = 0
+    while True:  
+        # Tratamento para caso o valor digitado nâo seja um numero
+        try:
+            x = int(input("\nCódigo do serviço (0 para sair): "))
+        except ValueError:
+            print("Valor inserido invalido")
+            continue
+            
+            preco = 0
         
         match x:
             case 1:
@@ -47,7 +53,12 @@ valorPagar = codigoPreco()
 # Selecionando formas de pagamentos
 def pagamento():
     while True:
-        pagamento = int(input("\nEscolha uma forma de pagamento: \n\n1 - Pix\n2 - Dinheiro\n3 - Cartão de crédito ou debito\n\n"))
+        # Tratamento para caso o valor digitado nâo seja um numero
+        try:
+            pagamento = int(input("\nEscolha uma forma de pagamento: \n\n1 - Pix\n2 - Dinheiro\n3 - Cartão de crédito ou debito\n\n"))
+        except ValueError:
+            print("Valor inserido invalido")
+            continue
         match pagamento:
             case 2:
                 valorDinheiro = float(input("\nValor pago em dinheiro: R$"))
