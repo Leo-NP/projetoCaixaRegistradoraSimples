@@ -1,4 +1,4 @@
-# Mostrar o codigo dos serviços
+ Mostrar o codigo dos serviços
 print("Impressão PB: 1")
 print("Copia PB: 2")
 print("Impressão Colorida: 3")
@@ -11,16 +11,15 @@ print("******************************************************")
 # Função para atribuiur o codigo do serviço e a quantidade, calculando o preço conforme inserção
 def codigoPreco():
     total = 0
+    preco = 0
     while True:  
         # Tratamento para caso o valor digitado nâo seja um numero
         try:
-            x = int(input("\nCódigo do serviço (0 para sair): "))
+            x = int(input("\nCódigo do serviço (0 para sair): "))     
         except ValueError:
-            print("Valor inserido invalido")
+            print("Valor inserido invalido!")
             continue
-            
-            preco = 0
-        
+         
         match x:
             case 1:
                 preco = 1.00
@@ -39,7 +38,7 @@ def codigoPreco():
             case 0:
                 break
             case _:
-                print("Código invalido.")
+                print("Código invalido!")
                 continue
                 
         if preco != 0:
@@ -48,7 +47,13 @@ def codigoPreco():
             
     return total
     
-valorPagar = codigoPreco() 
+valorPagar = codigoPreco()
+
+# Validando se será necessário o programa parar ou não
+if valorPagar > 0:
+    pagamento()
+else:
+    print("\nNenhum serviço ou venda foi realizado(a), encerrando programa.")
 
 # Selecionando formas de pagamentos
 def pagamento():
@@ -57,7 +62,7 @@ def pagamento():
         try:
             pagamento = int(input("\nEscolha uma forma de pagamento: \n\n1 - Pix\n2 - Dinheiro\n3 - Cartão de crédito ou debito\n\n"))
         except ValueError:
-            print("Valor inserido invalido")
+            print("Valor inserido invalido!")
             continue
         match pagamento:
             case 2:
@@ -67,15 +72,13 @@ def pagamento():
                 print(f"Troco: R${troco:5.2f}")
                 break
             case 1:
-                print("Pagamento em pix")
+                print("Pagamento em pix.")
                 print(f"Valor total R${valorPagar :5.2f}")
                 break
             case 3:
-                print("Pagamento em cartão de crédito ou debito")
+                print("Pagamento em cartão de crédito ou debito.")
                 print(f"Valor total R${valorPagar :5.2f}")
                 break
             case _:
                 print("Forma de pagamento invalida, insira um codigo válido.")
                 continue
-
-pagamento()
