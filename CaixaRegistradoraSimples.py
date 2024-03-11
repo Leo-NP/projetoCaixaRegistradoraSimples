@@ -19,7 +19,7 @@ def codigoPreco():
         except ValueError:
             print("Valor inserido invalido!")
             continue
-            
+         
         match x:
             case 1:
                 preco = 1.00
